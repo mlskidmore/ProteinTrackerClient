@@ -51,6 +51,7 @@ namespace ProteinTrackerClient
         {
             try
             {
+                var auth = new Auth { txtNewUserName = "Bob", PasswordPropertyTextAttribute = "Pass"}
                 var userID = users[cboSelectUser.SelectedIndex].UserID;
                 var newTotal = await service.AddProteinAsync(int.Parse(txtProteinAmount.Text), userID);
 
@@ -60,8 +61,7 @@ namespace ProteinTrackerClient
             catch(FaultException fe)
             {
                 Console.WriteLine("Exception: " + fe.Message);
-            }
-            
+            }            
         }
     }
 }
